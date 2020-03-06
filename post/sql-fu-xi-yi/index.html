@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>SQL复习(一) | dyzzbao的Blog</title>
+<meta name="description" content="心上无垢，林间有风。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583483221491">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://dyzzbao.github.io">
+        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583483221491" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://dyzzbao.github.io">
+        <h1 class="site-title">dyzzbao的Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">SQL复习(一)</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-06</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://dyzzbao.github.io/tag/zptcVFw6-/">
+                    dou是知识点
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/rBjSbKi06/">
+                    SQL
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>今天开始复习一下数据库的知识。</p>
+<h3 id="1-创建表">1 创建表</h3>
+<p>表结构如下：<br>
+<img src="https://dyzzbao.github.io/post-images/1583468752548.png" alt="" loading="lazy"><br>
+生成的SQL文件为：</p>
+<pre><code>&lt;!-- 学生表 --&gt;
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `学号` varchar(255) NOT NULL,
+  `姓名` varchar(255) NOT NULL,
+  `出生日期` date NOT NULL,
+  `性别` varchar(255) NOT NULL,
+  PRIMARY KEY (`学号`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+&lt;!-- 成绩表 --&gt;
+DROP TABLE IF EXISTS `score`;
+CREATE TABLE `score` (
+  `学号` varchar(255) NOT NULL,
+  `课程号` varchar(255) NOT NULL,
+  `成绩` float(3,0) NOT NULL,
+  PRIMARY KEY (`学号`,`课程号`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ &lt;!-- 课程表 --&gt;
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
+  `课程号` varchar(255) NOT NULL,
+  `课程名称` varchar(255) NOT NULL,
+  `教师号` varchar(255) NOT NULL,
+  PRIMARY KEY (`课程号`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+&lt;!--  教师表 --&gt;
+DROP TABLE IF EXISTS `teacher`;
+CREATE TABLE `teacher` (
+  `教师号` varchar(20) NOT NULL,
+  `教师姓名` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`教师号`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre>
+<h3 id="2-插入新数据">2 插入新数据</h3>
+<pre><code>&lt;!-- 插入学生信息 --&gt;
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0001','猴子','1989-01-01','男'); 
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0002','猴子','1990-12-21','女'); 
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0003','马云','1991-12-21','男'); 
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0004','王思聪','1990-05-20','男');
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0005','美猴王','1990-05-20','男');
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0006','六耳泥猴','1990-05-20','男');
+&lt;!-- 插入学生成绩信息 --&gt;
+INSERT INTO score (学号,课程号,成绩) VALUES ('0001','0001',80); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0001','0002',90); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0001','0003',99); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0002','0002',60); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0002','0003',80); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0003','0001',80); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0003','0002',80); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0003','0003',80);
+&lt;!-- 插入课程信息 --&gt;
+INSERT INTO course (课程号,课程名称,教师号) VALUES ('0001','语文','0002'); 
+INSERT INTO course (课程号,课程名称,教师号) VALUES ('0002','数学','0001'); 
+INSERT INTO course (课程号,课程名称,教师号) VALUES ('0003','英语','0003');
+&lt;!-- 插入教师信息 --&gt;
+INSERT INTO teacher(教师号,教师姓名) VALUES ('0001','孟扎扎');
+INSERT INTO teacher(教师号,教师姓名) VALUES ('0002','马化腾');
+INSERT INTO teacher(教师号,教师姓名) VALUES ('0003',NULL);
+INSERT INTO teacher(教师号,教师姓名) VALUES ('0004','');
+</code></pre>
+<h3 id="3-sql使用">3 SQL使用</h3>
+<p>3.1 简单查询</p>
+<pre><code>-- 查询姓“猴”的学生名单
+SELECT * FROM student WHERE 姓名 LIKE '猴%';
+-- 查询姓名中最后一个字是“猴”的学生名单
+SELECT * FROM student WHERE 姓名 LIKE '%猴';
+-- 查询姓名中带“猴”的学生名单
+SELECT * FROM student WHERE 姓名 LIKE '%猴%';
+-- 查询姓“孟”老师的个数
+SELECT * FROM teacher WHERE 教师姓名 LIKE '孟%';
+</code></pre>
+<p>3.2 汇总分析</p>
+<pre><code>-- 查询课程编号为“0002”的总成绩
+SELECT SUM(成绩) FROM score WHERE 课程号 = '0002';
+-- 查询选了课程的学生人数
+SELECT COUNT(DISTINCT 学号) AS 学生人数 FROM score;
+</code></pre>
+<p>3.3 分组</p>
+<pre><code>-- 查询各科成绩最高和最低的分， 以如下的形式显示：课程号，最高分，最低分
+SELECT 课程号,MAX(成绩) AS 最高分,MIN(成绩) AS 最低分 FROM score GROUP BY 课程号;
+-- 查询每门课程被选修的学生数
+SELECT 课程号,COUNT(学号) AS 学生数 FROM score GROUP BY 课程号;
+-- 查询男生、女生人数
+SELECT 性别,COUNT(*) AS 人数 FROM student GROUP BY 性别;
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://dyzzbao.github.io/post/typingio-yi-ge-te-bie-de-zai-xian-da-zi-wang-zhan/">
+              <h3 class="post-title">
+                下一篇：typing.io--一个特别的在线打字网站
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">心上无垢，林间有风。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://dyzzbao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
