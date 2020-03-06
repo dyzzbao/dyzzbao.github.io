@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583483221491">
+<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583501722029">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://dyzzbao.github.io">
-        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583483221491" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583501722029" alt="" width="32px" height="32px">
       </a>
       <a href="https://dyzzbao.github.io">
         <h1 class="site-title">dyzzbao的Blog</h1>
@@ -108,7 +108,7 @@
 <p>表结构如下：<br>
 <img src="https://dyzzbao.github.io/post-images/1583468752548.png" alt="" loading="lazy"><br>
 生成的SQL文件为：</p>
-<pre><code>&lt;!-- 学生表 --&gt;
+<pre><code>-- 学生表
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `学号` varchar(255) NOT NULL,
@@ -117,8 +117,7 @@ CREATE TABLE `student` (
   `性别` varchar(255) NOT NULL,
   PRIMARY KEY (`学号`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-&lt;!-- 成绩表 --&gt;
+-- 成绩表
 DROP TABLE IF EXISTS `score`;
 CREATE TABLE `score` (
   `学号` varchar(255) NOT NULL,
@@ -126,8 +125,7 @@ CREATE TABLE `score` (
   `成绩` float(3,0) NOT NULL,
   PRIMARY KEY (`学号`,`课程号`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
- &lt;!-- 课程表 --&gt;
+-- 课程表
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `课程号` varchar(255) NOT NULL,
@@ -135,8 +133,7 @@ CREATE TABLE `course` (
   `教师号` varchar(255) NOT NULL,
   PRIMARY KEY (`课程号`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-&lt;!--  教师表 --&gt;
+--  教师表
 DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE `teacher` (
   `教师号` varchar(20) NOT NULL,
@@ -145,57 +142,122 @@ CREATE TABLE `teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 </code></pre>
 <h3 id="2-插入新数据">2 插入新数据</h3>
-<pre><code>&lt;!-- 插入学生信息 --&gt;
+<pre><code>-- 插入学生数据
 INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0001','猴子','1989-01-01','男'); 
 INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0002','猴子','1990-12-21','女'); 
 INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0003','马云','1991-12-21','男'); 
 INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0004','王思聪','1990-05-20','男');
-INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0005','美猴王','1990-05-20','男');
-INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0006','六耳泥猴','1990-05-20','男');
-&lt;!-- 插入学生成绩信息 --&gt;
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0005','美猴王','1991-05-20','男');
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0006','六耳泥猴','1992-05-20','男');
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0007','周云','1989-07-21','女'); 
+INSERT INTO student (学号,姓名,出生日期,性别) VALUES ('0008','刘乐','1990-01-21','女'); 
+
+-- 插入成绩数据
 INSERT INTO score (学号,课程号,成绩) VALUES ('0001','0001',80); 
 INSERT INTO score (学号,课程号,成绩) VALUES ('0001','0002',90); 
 INSERT INTO score (学号,课程号,成绩) VALUES ('0001','0003',99); 
 INSERT INTO score (学号,课程号,成绩) VALUES ('0002','0002',60); 
 INSERT INTO score (学号,课程号,成绩) VALUES ('0002','0003',80); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0002','0001',70); 
 INSERT INTO score (学号,课程号,成绩) VALUES ('0003','0001',80); 
 INSERT INTO score (学号,课程号,成绩) VALUES ('0003','0002',80); 
 INSERT INTO score (学号,课程号,成绩) VALUES ('0003','0003',80);
-&lt;!-- 插入课程信息 --&gt;
+INSERT INTO score (学号,课程号,成绩) VALUES ('0004','0001',50); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0004','0002',30); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0004','0003',20); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0005','0001',76); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0005','0002',87); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0006','0001',31); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0006','0003',34); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0007','0002',89); 
+INSERT INTO score (学号,课程号,成绩) VALUES ('0007','0003',98); 
+-- 插入课程信息
 INSERT INTO course (课程号,课程名称,教师号) VALUES ('0001','语文','0002'); 
 INSERT INTO course (课程号,课程名称,教师号) VALUES ('0002','数学','0001'); 
 INSERT INTO course (课程号,课程名称,教师号) VALUES ('0003','英语','0003');
-&lt;!-- 插入教师信息 --&gt;
+-- 插入教师信息
 INSERT INTO teacher(教师号,教师姓名) VALUES ('0001','孟扎扎');
 INSERT INTO teacher(教师号,教师姓名) VALUES ('0002','马化腾');
-INSERT INTO teacher(教师号,教师姓名) VALUES ('0003',NULL);
-INSERT INTO teacher(教师号,教师姓名) VALUES ('0004','');
+INSERT INTO teacher(教师号,教师姓名) VALUES ('0003','李辉');
+INSERT INTO teacher(教师号,教师姓名) VALUES ('0004',NULL);
+INSERT INTO teacher(教师号,教师姓名) VALUES ('0005','');
 </code></pre>
-<h3 id="3-sql使用">3 SQL使用</h3>
-<p>3.1 简单查询</p>
-<pre><code>-- 查询姓“猴”的学生名单
-SELECT * FROM student WHERE 姓名 LIKE '猴%';
--- 查询姓名中最后一个字是“猴”的学生名单
-SELECT * FROM student WHERE 姓名 LIKE '%猴';
--- 查询姓名中带“猴”的学生名单
-SELECT * FROM student WHERE 姓名 LIKE '%猴%';
--- 查询姓“孟”老师的个数
-SELECT * FROM teacher WHERE 教师姓名 LIKE '孟%';
-</code></pre>
-<p>3.2 汇总分析</p>
-<pre><code>-- 查询课程编号为“0002”的总成绩
-SELECT SUM(成绩) FROM score WHERE 课程号 = '0002';
--- 查询选了课程的学生人数
-SELECT COUNT(DISTINCT 学号) AS 学生人数 FROM score;
-</code></pre>
-<p>3.3 分组</p>
-<pre><code>-- 查询各科成绩最高和最低的分， 以如下的形式显示：课程号，最高分，最低分
-SELECT 课程号,MAX(成绩) AS 最高分,MIN(成绩) AS 最低分 FROM score GROUP BY 课程号;
--- 查询每门课程被选修的学生数
-SELECT 课程号,COUNT(学号) AS 学生数 FROM score GROUP BY 课程号;
--- 查询男生、女生人数
-SELECT 性别,COUNT(*) AS 人数 FROM student GROUP BY 性别;
-</code></pre>
+<h3 id="3-查询">3 查询</h3>
+<p>-- 1. * 查询'0001'课程比'0002'课程成绩高的所有学生的学号<br>
+SELECT a.学号 FROM<br>
+(SELECT 学号,成绩 FROM score WHERE 课程号='0001') a<br>
+INNER JOIN (SELECT 学号,成绩 FROM score WHERE 课程号='0002') b<br>
+ON a.学号=b.学号<br>
+WHERE a.成绩&gt;b.成绩;<br>
+-- 2. * 查询平均成绩大于60分学生的学号和平均成绩<br>
+SELECT 学号,AVG(成绩) AS 平均成绩 FROM score GROUP BY 学号 HAVING AVG(成绩) &gt; 60;<br>
+-- 3. 查询所有学生的学号、姓名、选课数、总成绩<br>
+SELECT a.学号,a.姓名,COUNT(b.课程号) AS 选课数,SUM(b.成绩) AS 总成绩<br>
+FROM student a LEFT JOIN score b<br>
+ON a.学号=b.学号<br>
+GROUP BY a.学号,a.姓名;<br>
+-- 4. 查询姓“孟”老师的个数<br>
+SELECT COUNT(教师号) AS 总数 FROM teacher WHERE 教师姓名 LIKE '孟%';<br>
+-- 5. * 查询没学过“李辉”老师课的学生的学号、姓名<br>
+SELECT 学号,姓名<br>
+FROM student<br>
+WHERE 学号 NOT IN (<br>
+SELECT a.学号 FROM score a<br>
+INNER JOIN course b ON a.课程号=b.课程号<br>
+INNER JOIN teacher c ON b.教师号=c.教师号<br>
+WHERE c.教师姓名='李辉');<br>
+-- 6. * 查询学过“李辉”老师所教的所有课的同学的学号、姓名<br>
+SELECT 学号,姓名<br>
+FROM student<br>
+WHERE 学号 IN (<br>
+SELECT a.学号 FROM score a<br>
+INNER JOIN course b ON a.课程号=b.课程号<br>
+INNER JOIN teacher c ON b.教师号=c.教师号<br>
+WHERE c.教师姓名='李辉');<br>
+-- 7. * 查询学过编号为“0001”的课程并且也学过编号为“0002”的课程的学生的学号、姓名<br>
+SELECT 学号,姓名<br>
+FROM student<br>
+WHERE 学号 IN(<br>
+SELECT a.学号 FROM<br>
+(SELECT 学号,课程号 FROM score WHERE 课程号='0001') a<br>
+INNER JOIN (SELECT 学号,课程号 FROM score WHERE 课程号='0002') b<br>
+ON a.学号= b.学号);<br>
+-- 8. 查询课程编号为“0002”的总成绩<br>
+SELECT SUM(成绩) AS 总成绩 FROM score WHERE 课程号 = '0002';<br>
+-- 9. * 查询所有课程成绩小于60分学生的学号、姓名<br>
+SELECT 学号,姓名 FROM student WHERE 学号 IN<br>
+(SELECT 学号 FROM score WHERE 成绩&lt; 60);<br>
+-- 10. * 查询没有学全所有课的学生的学号、姓名<br>
+SELECT 学号,姓名 FROM student WHERE 学号 IN (<br>
+SELECT 学号 FROM score GROUP BY 学号 HAVING COUNT(课程号)&lt;<br>
+(SELECT COUNT(课程号) FROM course));<br>
+-- 11. * 查询至少有一门课与学号为“0005”的学生所学课程相同的学生的学号和姓名<br>
+SELECT DISTINCT a.学号,a.姓名<br>
+FROM student a INNER JOIN score b ON a.学号 = b.学号<br>
+WHERE b.课程号 IN<br>
+(SELECT 课程号 FROM score WHERE 学号 = '0005') AND a.学号!='0005';<br>
+-- 13. * 查询没学过&quot;李辉&quot;老师讲授的任一门课程的学号、姓名<br>
+SELECT 学号,姓名<br>
+FROM student<br>
+WHERE 学号 NOT IN<br>
+(SELECT a.学号<br>
+FROM score a<br>
+INNER JOIN course b ON a.课程号=b.课程号<br>
+INNER JOIN teacher c ON b.教师号=c.教师号<br>
+WHERE c.教师姓名='李辉');<br>
+-- 15. * 查询两门及以上不及格课程的同学的学号及其平均成绩<br>
+SELECT 学号, AVG(成绩) AS 平均成绩<br>
+FROM score<br>
+WHERE 成绩 &lt; 60<br>
+GROUP BY 学号<br>
+HAVING COUNT(课程号) &gt;= 2;<br>
+-- 16. * 检索课程编号为“0001”且分数小于60的学生学号，结果按分数降序排列<br>
+SELECT 学号,成绩 FROM score WHERE 课程号='0001' and  成绩 &lt; 60 ORDER BY 成绩 DESC;<br>
+-- 17. * 按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩<br>
+SELECT a.学号,a.课程号,a.成绩,b.平均成绩 FROM score a<br>
+INNER JOIN (SELECT 学号,AVG(成绩) AS 平均成绩 FROM score GROUP BY 学号) b<br>
+ON a.学号=b.学号<br>
+ORDER BY b.平均成绩 DESC</p>
 
           </div>
         </div>
