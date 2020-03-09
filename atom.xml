@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dyzzbao.github.io</id>
     <title>dyzzbao的Blog</title>
-    <updated>2020-03-07T01:58:05.223Z</updated>
+    <updated>2020-03-09T12:34:08.170Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dyzzbao.github.io"/>
     <link rel="self" href="https://dyzzbao.github.io/atom.xml"/>
@@ -10,6 +10,41 @@
     <logo>https://dyzzbao.github.io/images/avatar.png</logo>
     <icon>https://dyzzbao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, dyzzbao的Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[金山办公2020校招测试工程师笔试题（二）]]></title>
+        <id>https://dyzzbao.github.io/post/jin-shan-ban-gong-2020-xiao-zhao-ce-shi-gong-cheng-shi-bi-shi-ti-er/</id>
+        <link href="https://dyzzbao.github.io/post/jin-shan-ban-gong-2020-xiao-zhao-ce-shi-gong-cheng-shi-bi-shi-ti-er/">
+        </link>
+        <updated>2020-03-09T12:08:24.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SQL面试题]]></title>
+        <id>https://dyzzbao.github.io/post/sql-mian-shi-ti/</id>
+        <link href="https://dyzzbao.github.io/post/sql-mian-shi-ti/">
+        </link>
+        <updated>2020-03-09T02:27:28.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[美团点评]测试工程师-2020]]></title>
+        <id>https://dyzzbao.github.io/post/mei-tuan-dian-ping-ce-shi-gong-cheng-shi-2020/</id>
+        <link href="https://dyzzbao.github.io/post/mei-tuan-dian-ping-ce-shi-gong-cheng-shi-2020/">
+        </link>
+        <updated>2020-03-09T01:00:57.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[美团点评]运维工程师-2020]]></title>
+        <id>https://dyzzbao.github.io/post/mei-tuan-dian-ping-yun-wei-gong-cheng-shi-2020/</id>
+        <link href="https://dyzzbao.github.io/post/mei-tuan-dian-ping-yun-wei-gong-cheng-shi-2020/">
+        </link>
+        <updated>2020-03-08T15:40:18.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[牛客网]「13.1」测试面试宝典-智力题]]></title>
+        <id>https://dyzzbao.github.io/post/niu-ke-wang-ce-shi-gong-cheng-shi-zhi-li-ti/</id>
+        <link href="https://dyzzbao.github.io/post/niu-ke-wang-ce-shi-gong-cheng-shi-zhi-li-ti/">
+        </link>
+        <updated>2020-03-08T11:19:42.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SQL复习(一)]]></title>
         <id>https://dyzzbao.github.io/post/sql-fu-xi-yi/</id>

@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>SQL面试题 | dyzzbao的Blog</title>
+<meta name="description" content="心上无垢，林间有风。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583757112375">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://dyzzbao.github.io">
+        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583757112375" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://dyzzbao.github.io">
+        <h1 class="site-title">dyzzbao的Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1491505894,4150661399&amp;fm=26&amp;gp=0.jpg')">
+            </div>
+          
+          <h2 class="post-title">SQL面试题</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-09</span>
+            
+          </div>
+          <div class="post-content">
+            <p>1 大学生春季运动会的数据库，保存了比赛信息的三个表如下：<br>
+运动员 sporter（运动员编号 sporterid，姓名name，性别 sex，所属系号 department），<br>
+项目 item（项目编号 itemid，名称 itemname，比赛地点 location）， 成绩 grade（运动员编号 id，项目编号 itemid，积分 mark）。<br>
+用SQL语句完成在“体育馆”进行比赛的各项目名称及其冠军的姓名，正确的是：（      ）。<br>
+SELECT i.itemname,s.name<br>
+FROM grade g,<br>
+(SELECT itemid iid,MAX(mark) max<br>
+FROM grade<br>
+WHERE itemid IN ( SELECT itemid FROM item  WHERE location='体育馆')<br>
+GROUP BY itemid) temp,item i,sporter s<br>
+WHERE g.itemid=temp.iid<br>
+AND g.mark=temp.max<br>
+AND temp.iid=i.itemid<br>
+AND s.sporterid=g.sporterid;</p>
+<p>2 快件信息表（waybillinfo）中存储了快件的所有操作信息，请找出在中山公园网点，异常派送（optype='异常派件'）次数超过3次的快件(waybillno),正确的sql为（）<br>
+select waybillno<br>
+from waybillinfo<br>
+where zonecode='中山公园' and optype='异常派件'<br>
+group by waybillno<br>
+having count(*) &gt; 3</p>
+<p>3 下面有关sql 语句中 delete truncate的说法正确的是？（AC）<br>
+A 论清理表数据的速度，truncate一般比delete更快<br>
+B truncate命令可以用来删除部分数据。<br>
+C truncate只删除表的数据不删除表的结构<br>
+D delete能够回收高水位</p>
+<p>4 在SQL中语法规范中，having子句的使用下面描述正确的是：（  AC     ）<br>
+A having子句即可包含聚合函数作用的字段也可包括普通的标量字段<br>
+B 使用having的同时不能使用where子句<br>
+C having子句必须于group by 子句同时使用，不能单独使用<br>
+D 使用having子句的作用是限定分组条件<br>
+E Having子句和where子句是等同的<br>
+F 如果select语句中没有聚合函数的使用，就不能使用having子句</p>
+<p>5 使用SQL语句建个存储过程proc_stu，然后以student表中的学号Stu_ID为输入参数@s_no，返回学生个人的指定信息。下面创建存储过程语句正确的是：（      ）<br>
+CREATE PROCEDURE [stu].[proc_student]<br>
+@s_no (AS) int<br>
+AS<br>
+BEGIN<br>
+select * from stu.student where Stu_ID=@s_no<br>
+END</p>
+<p>6 表结构如下：<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+CREATE TABLE <code>score</code> (<br>
+<code>id</code> int(11) NOT NULL AUTO_INCREMENT,<br>
+<code>sno</code> int(11) NOT NULL,<br>
+<code>cno</code> tinyint(4) NOT NULL,<br>
+<code>score</code> tinyint(4) DEFAULT NULL,<br>
+PRIMARY KEY (<code>id</code>)<br>
+) ;<br>
+以下查询语句结果一定相等的是（ABCE、DF）<br>
+A.SELECT sum(score) / count(*) FROM score WHERE cno = 2;</p>
+<p>B.SELECT sum(score) / count(id) FROM score WHERE cno = 2;</p>
+<p>C.SELECT sum(score) / count(sno) FROM score WHERE cno = 2;</p>
+<p>D.SELECT sum(score) / count(score) FROM score WHERE cno = 2;</p>
+<p>E.SELECT sum(score) / count(1) FROM score WHERE cno = 2;</p>
+<p>F.SELECT avg(score) FROM score WHERE cno = 2;<br>
+备注:<br>
+1、count(<em>)包括了所有的列，相当于行数，在统计结果的时候，不会忽略列值为NULL。<br>
+2、count(1)包括了忽略所有列，用1代表代码行，在统计结果的时候，不会忽略列值为NULL。<br>
+3、count(列名)只包括列名那一列，在统计结果的时候，会忽略列值为空。<br>
+因此本题中，count(</em>)==count(id)==count(sno)==count(1)。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://dyzzbao.github.io/post/mei-tuan-dian-ping-ce-shi-gong-cheng-shi-2020/">
+              <h3 class="post-title">
+                下一篇：[美团点评]测试工程师-2020
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">心上无垢，林间有风。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://dyzzbao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b106d86af989ef692a1',
+        clientSecret: 'e946caeee7b7299f9b224e411328582e323f467f',
+        repo: 'dyzzbao.github.io',
+        owner: 'dyzzbao',
+        admin: ['dyzzbao'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

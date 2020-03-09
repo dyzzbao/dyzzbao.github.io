@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>[美团点评]运维工程师-2020 | dyzzbao的Blog</title>
+<meta name="description" content="心上无垢，林间有风。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583757112375">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://dyzzbao.github.io">
+        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583757112375" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://dyzzbao.github.io">
+        <h1 class="site-title">dyzzbao的Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3796071178,1066819574&amp;fm=26&amp;gp=0.jpg')">
+            </div>
+          
+          <h2 class="post-title">[美团点评]运维工程师-2020</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-08</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://dyzzbao.github.io/tag/KpNvtXojR/">
+                    校招
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/-gqcGEu98/">
+                    面试
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/zptcVFw6-/">
+                    dou是知识点
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>1 TCP为什么需要第三次握手？第三次握手失败了会怎么样？</p>
+<pre><code>&lt;!-- 自己百度的答案： --&gt;
+为了避免连接建立后服务端等待客户端的数据而造成的资源浪费，同时为了防止已经失效的连接请求报文段突然又传到服务端，因而产生错误。
+第三次握手失败时,服务器会关闭连接
+网友：
+为了防止已过期的链接再次传到被链接的主机
+</code></pre>
+<p>2 请简述ssrf的原理、有哪些攻击方式及防御方法。</p>
+<pre><code>利用存在缺陷的web应用作为代理攻击远程和本地的服务器，且由于服务端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制。
+ssrf的主要攻击方式是通过与要攻击的主机间存在数据交换等通信的服务器发送数据包从而该主机的响应数据，防御方法有：
+1、过滤返回的信息，如果web应用是去获取某一种类型的文件。那么在把返回结果展示给用户之前先验证返回的信息是否符合标准。
+2、统一错误信息，避免用户可以根据错误信息来判断远程服务器的端口状态。
+3、限制请求的端口，比如80,443,8080,8090。
+4、禁止不常用的协议，仅仅允许http和https请求。可以防止类似于file:///,gopher://,ftp://等引起的问题。
+5、使用DNS缓存或者Host白名单的方式。
+</code></pre>
+<p>3 OSPF（Open Shortest Path First）路由协议建立邻居的过程有那几个状态？</p>
+<pre><code>&lt;!-- 参考答案 --&gt;
+1、down state 
+2、init state 
+3、two-way state 
+4、exstart state 
+5、exchange state 
+6、loading state 
+7、full state
+</code></pre>
+<p>4 假设现在只有三台笔记本，分别为PC1、PC2和PC3，其中每台笔记本都有1块有线网卡和一块无线网卡，在仅有1根网线的情况下，如何将三台笔记本电脑组到一个局域网中？请给出解题思路步骤。</p>
+<pre><code>&lt;!-- 参考答案 --&gt;
+第一步：将其中一台笔记本（如PC2）的有线网卡和无线网卡做桥接；
+第二步：PC1和PC2通过网线将有线网卡互联，PC2和PC3通过无线网卡互联；
+第三步：将三台PC配置在同一个网段(比如192.168.1.0/24)。
+</code></pre>
+<p>5 请简述操作系统分页式内存管理机制，并介绍下进程fork时对内存的copy on write实现原理。<br>
+6 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<pre><code>&lt;!-- 解法一 C++版 --&gt;
+用一个map存储每一个数的次序+1，方便如果出现重复的数，则start从map对应的数值开始，时间复杂度O(n)
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main(){
+    string A;
+    while(cin &gt;&gt; A){
+        int size = A.length();
+        int res = 0;
+        unordered_map&lt;int, int&gt; map;
+        for(int start = 0, end = 0; end &lt; size; end++){
+            if(map.count(A[end])){
+                start = max(start, map[A[end]]);
+            }
+            map[A[end]] = end+1;
+            res = max(res, end - start + 1);
+        }
+        cout &lt;&lt; res &lt;&lt; endl;
+    }
+    return 0;
+}
+&lt;!-- 解法二 Java版--&gt;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class Main{
+    public static int lengthOfLongestSubstring(String s) {
+        if (s == null) {
+            return 0;
+        }
+ 
+        if (s.length() == 1) {
+            return 1;
+        }
+        int res = 0;
+        int l=0;//下限
+        int r=0;//不停向前上限
+        int length = s.length();
+        List&lt;Character&gt; set = new ArrayList&lt;&gt;();
+ 
+        while (l&lt;length&amp;&amp;r&lt;length){
+            if(!set.contains(s.charAt(r))) {
+                set.add(s.charAt(r));
+                r++;
+                res=Math.max(res,r-l);
+            } else {
+                set.clear();
+                l = s.substring(0,r).lastIndexOf(s.charAt(r)) + 1;
+                r++;
+                for (int i = l; i &lt;r ; i++) {
+                    set.add(s.charAt(i));
+                }
+            }
+        }
+        return res;
+    }
+ 
+    public static void main(String arg[]){
+        Scanner input = new Scanner(System.in);
+        String a = input.next();
+        int res = 0;
+        res = lengthOfLongestSubstring(a);
+        System.out.print(res);
+    }
+}
+</code></pre>
+<p>7 设计和实现一个  LRU (最近最少使用) 缓存机制。它应该支持以下操作： 获取数据 get 和 写入数据 put 。获取数据 get(key) - 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。写入数据 put(key, value) - 如果密钥不存在，则写入其数据值。当缓存容量达到上限时，它应该在写入新数据之前删除最近最少使用的数据值，从而为新的数据值留出空间。</p>
+<!-- 无答案 -->
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://dyzzbao.github.io/post/niu-ke-wang-ce-shi-gong-cheng-shi-zhi-li-ti/">
+              <h3 class="post-title">
+                下一篇：[牛客网]「13.1」测试面试宝典-智力题
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">心上无垢，林间有风。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://dyzzbao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b106d86af989ef692a1',
+        clientSecret: 'e946caeee7b7299f9b224e411328582e323f467f',
+        repo: 'dyzzbao.github.io',
+        owner: 'dyzzbao',
+        admin: ['dyzzbao'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583546255412">
+<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583757112375">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://dyzzbao.github.io">
-        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583546255412" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583757112375" alt="" width="32px" height="32px">
       </a>
       <a href="https://dyzzbao.github.io">
         <h1 class="site-title">dyzzbao的Blog</h1>
@@ -266,7 +266,21 @@ SELECT 学号,成绩 FROM score WHERE 课程号='0001' and  成绩 &lt; 60 ORDER
 SELECT a.学号,a.课程号,a.成绩,b.平均成绩 FROM score a<br>
 INNER JOIN (SELECT 学号,AVG(成绩) AS 平均成绩 FROM score GROUP BY 学号) b<br>
 ON a.学号=b.学号<br>
-ORDER BY b.平均成绩 DESC</p>
+ORDER BY b.平均成绩 DESC<br>
+-- 18. * 查询各科成绩最高分、最低分和平均分：以如下形式显示：课程ID，课程name，最高分，最低分，平均分，及格率，中等率，优良率，优秀率<br>
+--及格为&gt;=60，中等为：70-80，优良为：80-90，优秀为：&gt;=90<br>
+SELECT a.课程号,<br>
+课程名称,<br>
+MAX(成绩) AS '最高分',<br>
+MIN(成绩) AS '最低分',<br>
+AVG(成绩) AS '平均分',<br>
+COUNT(IF(成绩 &gt;= 60,学号,NULL))/COUNT(学号) '及格率',<br>
+COUNT(IF(成绩 &gt;= 70 AND 成绩 &lt; 80 ,学号,NULL))/COUNT(学号) '中等率',<br>
+COUNT(IF(成绩 &gt;= 80 AND 成绩 &lt; 90 ,学号,NULL))/COUNT(学号) '优良率',<br>
+COUNT(IF(成绩 &gt;= 90,学号,NULL))/COUNT(学号) '优秀率'<br>
+FROM score AS a<br>
+LEFT JOIN course AS b ON a.课程号 = b.课程号<br>
+GROUP BY a.课程号;</p>
 
           </div>
         </div>

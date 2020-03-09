@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>[美团点评]测试工程师-2020 | dyzzbao的Blog</title>
+<meta name="description" content="心上无垢，林间有风。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583757112375">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://dyzzbao.github.io">
+        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583757112375" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://dyzzbao.github.io">
+        <h1 class="site-title">dyzzbao的Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3796071178,1066819574&amp;fm=26&amp;gp=0.jpg')">
+            </div>
+          
+          <h2 class="post-title">[美团点评]测试工程师-2020</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-09</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://dyzzbao.github.io/tag/KpNvtXojR/">
+                    校招
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/-gqcGEu98/">
+                    面试
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/zptcVFw6-/">
+                    dou是知识点
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>1、当使用美团团购购买套餐后，后台发生了哪些业务流程？</p>
+<pre><code>&lt;!-- 无答案 --&gt;
+</code></pre>
+<p>2、当用户第一次打开并登陆外卖App后会看到App的首页，打开和登陆外卖App的过程中发生了哪些具体的动作行为以及可能导致的缺陷？</p>
+<pre><code>&lt;!-- 参考答案 --&gt;
+一、首次打开App，App会进行应用的初始化和相关数据的加载。可能的缺陷包括启动闪退，打开过程加载时间过长，App启动过程的界面显示错误
+二、登陆App的过程中会进行用户名和密码的校验，以及根据分控策略阻止异常账号的登陆。可能的缺陷包括用户名密码未加密存储和显示，账户登陆异常信息提示错误
+三、App首页加载：用户位置定位，根据用户位置展示附近商圈的外卖门店信息。可能的缺陷包括用户位置定位失败或者错误，外卖门店信息加载失败和错误，网络加载失败等
+</code></pre>
+<p>3、当使用美团App扫描美团单车上的二维码后，发生了什么？</p>
+<pre><code>&lt;!-- 参考答案 --&gt;
+一、二维码识别：开锁url、车辆id等
+二、网络通信和页面渲染
+三、业务逻辑判断：车锁状态正常、账户余额充足、用户身份正常、用户GPS位置正常
+四、执行开锁、计费开始
+</code></pre>
+<p>4、当前的移动互联网产品，大都为以移动App形式呈现的一个典型的Client/Server或客户/服务器的体系结构：用户通过UI操作触发移动用户端发送一个网络请求给后台服务，众多后台微服务以及各种数据存储相互协作，得到用户想要的信息，并发送回移动应用端。移动端根据接收到的响应，展示不同的信息给用户。<br>
+假设当你在移动App中，点击一个按钮，比方说，美团的登陆按钮，如果从移动App的界面看起来，任何事情都没有发生，你将如何分析定位问题大致发生在什么地方？</p>
+<pre><code>&lt;!-- 无答案 --&gt;
+</code></pre>
+<p>5、将给定的字符串，按照规则删除字符，输出删除后的字符串。删除规则为：相同字符连续，则删除，如”aaaab”删除后的字符串为”b” 。注：仅是单个字符连续才删除，如babababa则不能删除；</p>
+<pre><code>&lt;!-- 参考答案一(C++) --&gt;
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main()
+{
+    string s;
+     
+   while(cin&gt;&gt;s)
+   {
+       string s1;
+       s='+'+s+'+';
+       for(int i=1;i&lt;s.length()-1;i++)
+       {
+           if(s[i]!=s[i-1]&amp;&amp;s[i]!=s[i+1])
+               s1=s1+s[i];
+}
+       if(s1.length()!=0)
+           cout&lt;&lt;s1&lt;&lt;endl;
+       else
+           cout&lt;&lt;&quot;no&quot;&lt;&lt;endl;
+   }
+    return 0;
+}
+</code></pre>
+<pre><code>&lt;!-- 参考答案二(java) --&gt;
+import java.util.Scanner;
+import java.util.Stack;
+/**
+ * 将给定的字符串，按照规则删除字符，输出删除后的字符串。删除规则为：相同字符连续，则删除，如”aaaab”删除后的字符串为”b” 。注：仅是单个字符连续才删除，如babababa则不能删除；
+输入描述:
+输入数据有多组，每组一行，仅包含数字和英文字母，不包含转义等其他特殊字符，输入数据最大长度为10；
+输出描述:
+对于每个测试实例，要求输出按规则删除后的数据，每个测试实例的输出占一行。如果删除后有字符，直接输出删除后的字符；如果删除后为空，则输出”no”
+ * todo
+ * @author Jack
+ * @date 2020年3月8日
+ */
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String temp = &quot;&quot;;
+        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
+        Stack&lt;Character&gt; ans = new Stack&lt;&gt;();
+        char flag = new Character(',');//用于标志当前字符是否需要压入栈中
+        while(sc.hasNext()) {
+            temp = sc.next();
+            for(char ch:temp.toCharArray()) {
+                while(!stack.isEmpty()&amp;&amp;stack.peek()==ch) {
+                    flag = stack.pop();
+                     
+                    //System.out.println(flag);
+                }
+                if(flag != ch) {
+                    stack.push(ch);
+                }
+                 
+            }
+            if(stack.isEmpty()) {
+                System.out.println(&quot;no&quot;);
+            }else {
+                while(!stack.isEmpty()) {
+                    ans.push(stack.pop());
+                }
+                while(!ans.isEmpty()) {
+                    System.out.print(ans.pop());
+                }
+                System.out.println();
+            }
+        }
+        sc.close();
+    }
+}
+</code></pre>
+<p>6、小美和小团在玩一个游戏，小美任意给出一个大字符串str1以及一个独立的小字符串str2，小团需要从这个大字符串str1里找到包含独立小字符串str2中所有字符的最小子字符串str3；<br>
+例如，小美给出一个大字符串&quot;meituan2019&quot;和一个子字符串&quot;i2t&quot;，那么小团给出的答案就应该是&quot;ituan2&quot;；</p>
+<p>需要注意：<br>
+1、str1中有可能没有完整包含str2所有字符的情况，此时返回&quot;&quot;，即为空字符串；<br>
+2、str1不会为空，但str2有可能为空，此时返回整个str1；<br>
+3、str2可能存在重复的字符，此时str3需要包含相等数量该字符；</p>
+<pre><code>&lt;!-- c++ --&gt;
+class Solution {
+public:
+    /**
+     * 
+     * @param str1 string字符串 
+     * @param str2 string字符串 
+     * @return string字符串
+     */
+    string getMinString(string str1, string str2) {
+        // write code here
+        if(str2==&quot;&quot;) return str1;
+        int n1=str1.size();
+        int n2=str2.size();
+        int num=0;
+        int start=0;
+        int end=0;
+        string res=&quot;&quot;;
+        for(int i=0;i&lt;n1;i++)
+        {
+            for(auto it=str2.begin();it&lt;str2.end();it++)
+            {
+                if(str1[i]==*it)
+                {
+                    num++;
+                    if(num==1) start=i;
+                    if(num==n2) end=i;
+                    str2.erase(it);
+                    break;
+                }
+            }
+        }
+        if(num!=n2) return res;
+        else 
+        {
+            for(int i=start;i&lt;=end;i++)
+            {
+                res+=str1[i];
+            }
+            return res;
+        }
+    }
+};
+</code></pre>
+<pre><code>&lt;!-- java --&gt;
+import java.util.*;
+public class Solution {
+    /**
+     * 
+     * @param str1 string字符串 
+     * @param str2 string字符串 
+     * @return string字符串
+     */
+    public String getMinString (String str1, String str2) {
+        // write code here
+        if(str2.length() == 0) {
+            return str1;
+        }
+        int[] res = new int[str2.length()];
+        boolean[] isVisited = new boolean[str1.length()];
+        for(int i=0;i&lt;str1.length();i++) {
+            isVisited[i] = false;
+        }
+        boolean flag = true;//用于表示在str1中是否找到了这个字符
+        for(int i=0;i&lt;str2.length();i++) {
+            flag = false;
+            for(int j=0;j&lt;str1.length();j++) {
+                if(str1.charAt(j) == str2.charAt(i)&amp;&amp;isVisited[j] == false) {
+                    flag = true;
+                    isVisited[j] = true;
+                    res[i] = j;
+                    break;
+                }
+                 
+            }
+            if(flag == false) {
+                return &quot;&quot;;
+            }
+        }
+        Arrays.sort(res);
+         
+        return str1.substring(res[0], res[str2.length()-1]+1);
+    }
+}
+</code></pre>
+<p>7、一个班级男生和女生数量相同，老师要求男生女生进行排队，男生全部排在队列前面，女生紧跟着排在男生队列后面，形成一个队列，现在要求男生女生交叉排列并且第一位是男生，且每个人在在原队列中的顺序不变，如何来做？</p>
+<p>要求：<br>
+交叉前：队列[男1，男2，男3，男4…男n，女1，女2，女3，女4…女n]<br>
+交叉后：队列[男1，女1，男2，女2，男3，女3，男4，女4…男n，女n]</p>
+<pre><code>&lt;!-- java --&gt;
+import java.util.Scanner;
+/**
+ * 一个班级男生和女生数量相同，老师要求男生女生进行排队，男生全部排在队列前面，女生紧跟着排在男生队列后面，形成一个队列，现在要求男生女生交叉排列并且第一位是男生，且每个人在在原队列中的顺序不变，如何来做？
+要求：
+交叉前：队列[男1，男2，男3，男4…男n，女1，女2，女3，女4…女n]
+交叉后：队列[男1，女1，男2，女2，男3，女3，男4，女4…男n，女n]
+
+输入描述:
+输入第一行一个整数 n 表示有 n 个男生和 n 个女生
+第 2 到第 n+1 行每一行有一个数字表示每个男生的编号
+第 n+2 到第 2*n+1 行每一行有一个数字表示每个女生的编号
+输出描述:
+输出 2*n 行，每行一个名字表示交叉排列后队列中依次每个学生的编号
+ * todo
+ * @author Jack
+ * @date 2020年3月8日
+ */
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] A = new int[2*n];
+        for(int i=0;i&lt;2*n;i=i+2) {
+            A[i] = sc.nextInt();
+             
+        }
+        for(int i=1;i&lt;2*n;i=i+2) {
+            A[i] = sc.nextInt();
+        }
+        for(int i=0;i&lt;2*n;i++) {
+            System.out.println(A[i]);
+        }
+        sc.close();
+    }
+}
+&lt;!-- c --&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(){
+    int n,t;
+    scanf(&quot;%d&quot;, &amp;n);
+    int *boy=(int*)malloc(sizeof(int)*n);
+    for(int i=0; i&lt;n; i++)
+        scanf(&quot;%d&quot;, boy+i);
+    for(int i=0; i&lt;n; i++){
+        printf(&quot;%d\n&quot;, boy[i]);
+        scanf(&quot;%d&quot;, &amp;t);
+        printf(&quot;%d\n&quot;, t);
+    }
+    free(boy);
+    return 0;
+}
+</code></pre>
+<pre><code>&lt;!-- c++ --&gt;
+#include&lt;bits/stdc++.h&gt;
+ 
+using namespace std;
+ 
+int main()
+{
+    int n;
+    int boy[500000],gl[500000];
+    cin&gt;&gt;n;
+     
+    for(int i=1;i&lt;=n;i++)
+    cin&gt;&gt;boy[i];
+    for(int i=1;i&lt;=n;i++)
+    cin&gt;&gt;gl[i];
+     
+    for(int i=1;i&lt;=n;i++)
+    cout&lt;&lt;boy[i]&lt;&lt;endl&lt;&lt;gl[i]&lt;&lt;endl;
+     
+}
+</code></pre>
+<p>8、给定一个仅包含 0 和 1 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。</p>
+<pre><code>&lt;!-- java --&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+ 
+public class Main {
+    static int[] nums;
+    static int n = 0;
+    static int res = 0;
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String s = &quot;&quot;;
+        while(!&quot;}&quot;.equals(s = bf.readLine())){
+            if(&quot;{&quot;.equals(s)) continue;
+            if(n == 0){
+                String[] strs = s.split(&quot;,&quot;);
+                n = strs.length;
+                nums = new int[n];
+                for (int i = 0; i &lt; n; i++) {
+                    if(i == 0) nums[i] = strs[i].charAt(2) - '0';
+                    else nums[i] = strs[i].charAt(1) - '0';
+                }
+                go(nums);
+            }else{
+                String[] strs = s.split(&quot;,&quot;);
+                for (int i = 0; i &lt; n; i++) {
+                    if(i == 0) {
+                        int tmp = strs[i].charAt(2) - '0';
+                        if(tmp == 0) nums[i] = 0;
+                        else nums[i] += tmp;
+                    }
+                    else {
+                        int tmp = strs[i].charAt(1) - '0';
+                        if(tmp == 0) nums[i] = 0;
+                        else nums[i] += tmp;
+                    }
+                }
+                go(nums);
+            }
+        }
+        System.out.println(res);
+    }
+    public static void go(int[] nums){
+        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+        for (int i = 0; i &lt; nums.length; i++) {
+            while(!stack.isEmpty() &amp;&amp; nums[i] &lt;= nums[stack.peek()]){
+                int j = stack.pop();
+                int k = stack.isEmpty() ? -1 : stack.peek();
+                res = Math.max(res, nums[j] * (i-k-1));
+            }
+            stack.push(i);
+        }
+        while(!stack.isEmpty()){
+            int j = stack.pop();
+            int k = stack.isEmpty() ? -1 : stack.peek();
+            res = Math.max(res, nums[j] * (nums.length - k - 1));
+        }
+    }
+}
+</code></pre>
+<pre><code>&lt;!-- c++ --&gt;
+#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+ 
+int main()
+{
+    vector&lt;vector&lt;int&gt;&gt;v;
+    string str;
+    while (getline(cin, str))
+    {
+         
+ 
+        if (str == &quot;}&quot;) break;
+        if (str == &quot;{&quot;) continue;
+        vector&lt;int&gt;temp;
+        for (int i = 0; i &lt; str.size(); i++)
+        {
+            if (str[i] == '0' || str[i] == '1')
+            {
+                temp.push_back(str[i] - '0');
+            }
+        }
+        v.push_back(temp);
+    }
+    int n = v[0].size();
+    int m = v.size();
+    int res = 0;
+    int l = 0;
+    int h = 0;
+    vector&lt;vector&lt;int&gt;&gt;flag;
+    for (int i = 0; i &lt; m; i++)
+    {
+        vector&lt;int&gt;v(n, 0);
+        flag.push_back(v);
+    }
+ 
+    for (int i = 0; i &lt; m; i++)
+    {
+        for (int j = 0; j &lt; n; j++)
+        {
+            if (v[i][j] == 1)
+            {
+                int temp = 0;
+                for (int t = i; t &lt; m; t++)
+                {
+                    if (v[t][j] == 1) temp++;
+                    else break;
+                }
+                flag[i][j] = temp;
+            }
+        }
+    }
+    for (int i = 0; i &lt; m; i++)
+    {
+        for (int j = 0; j &lt; n; j++)
+        {
+            if (flag[i][j] &gt; 0)
+            {
+                int temp = 0;
+                for (int t = j; t &lt; n; t++)
+                {
+                    if (flag[i][t] &gt;= flag[i][j]) temp++;
+                    else break;
+                }
+                for (int t = j; t &gt;= 0; t--)
+                {
+                    if (flag[i][t] &gt;= flag[i][j]) temp++;
+                    else break;
+                }
+                temp--;
+                res = max(res, flag[i][j] * temp);
+            }
+        }
+    }
+    cout &lt;&lt; res &lt;&lt; endl;
+ 
+ 
+    return 0;
+}
+</code></pre>
+<p>9、美团外卖是知名的外卖平台，现在有一名新入职的外卖小哥。请你给他写一段程序根据外卖地图和交通拥堵情况，告诉他从“配送点”V0，到各个目的地的最短配送距离。其中拥堵程度可以与路径参数直接相加，例如：V0点拥堵，拥堵系数是2，那么在地图上V0点的3条线路的参数都要加2，由原来的1、2、7变为3、4、9再进行。<br>
+<img src="https://dyzzbao.github.io/post-images/1583716741962.png" alt="" loading="lazy"><br>
+路径规划计算。路径参数越大代表路程越长。</p>
+<pre><code>&lt;!-- c++ --&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#define N 6
+using namespace std;
+int w[6][6] = { {0,1,2,7,1000,1000},
+{1,0,2,1000,5,4},
+{2,2,0,4,4,1000},
+{7,1000,4,0,6,1000},
+{1000,5,4,6,0,3},
+{1000,4,1000,1000,3,0}
+};
+int dis[6];
+int vis[6] = { 0 };
+void djkstra(int n)
+{
+    int min = 1000;
+    for (int i = 0; i &lt; N; i++)
+    {
+        dis[i] = w[n][i];
+    }
+    vis[n] = 1;
+    for (int i = 0; i &lt; N; i++)
+    {
+        int k = 0;
+        for (int j = 0; j &lt; N; j++)
+        {
+            if (!vis[j] &amp;&amp; min &gt; dis[j])
+            {
+                min = dis[j];
+                k = j;
+            }
+        }
+        vis[k] = 1;
+        for (int j= 0; j &lt; N; j++)
+        {
+            if ( dis[j] &gt; min + w[k][j])
+            {
+                dis[j] = min + w[k][j];
+            }
+        }
+    }
+}
+int main()
+{
+    int a,b,c;
+    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+    for (int i = 0; i &lt; 6; i++)
+    {
+        w[b][i] += c;
+        w[i][b] += c;
+    }
+    djkstra(0);
+    cout &lt;&lt; dis[a] &lt;&lt; endl;
+    return 0;
+ 
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://dyzzbao.github.io/post/mei-tuan-dian-ping-yun-wei-gong-cheng-shi-2020/">
+              <h3 class="post-title">
+                下一篇：[美团点评]运维工程师-2020
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">心上无垢，林间有风。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://dyzzbao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b106d86af989ef692a1',
+        clientSecret: 'e946caeee7b7299f9b224e411328582e323f467f',
+        repo: 'dyzzbao.github.io',
+        owner: 'dyzzbao',
+        admin: ['dyzzbao'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

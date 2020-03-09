@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>[牛客网]「13.1」测试面试宝典-智力题 | dyzzbao的Blog</title>
+<meta name="description" content="心上无垢，林间有风。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://dyzzbao.github.io/favicon.ico?v=1583757112375">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://dyzzbao.github.io">
+        <img class="avatar" src="https://dyzzbao.github.io/images/avatar.png?v=1583757112375" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://dyzzbao.github.io">
+        <h1 class="site-title">dyzzbao的Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3796071178,1066819574&amp;fm=26&amp;gp=0.jpg')">
+            </div>
+          
+          <h2 class="post-title">[牛客网]「13.1」测试面试宝典-智力题</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-08</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://dyzzbao.github.io/tag/zfzuNYbMT/">
+                    测试
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/KpNvtXojR/">
+                    校招
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/-gqcGEu98/">
+                    面试
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://dyzzbao.github.io/tag/zptcVFw6-/">
+                    dou是知识点
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>● 5只猫 五分钟捉5只老鼠 请问100分钟捉100只老鼠需要多少只猫？<br>
+参考回答：<br>
+5<em>X</em>5M=5Y<br>
+K<em>X</em>100M=100Y</p>
+<p>K=5</p>
+<p>需要5只猫</p>
+<p>● 圆桌，两个人，轮流放硬币，不能重叠，半径为1，某一方不能放下去，则为输。问先手赢 后手赢。<br>
+参考回答：<br>
+先手赢。圆桌对称，先手放一个，后手都能找到对称的位置放，但是除了圆心。<br>
+● 逻辑题：3升的杯子一个，5升的杯子一个，杯子不规则形状 问怎么得到4升的水 水无限多<br>
+参考回答：<br>
+1、将3升的装满倒入5升的；<br>
+2、再一次将3升的转满，倒入5升的，把5升装满；</p>
+<p>3、3升杯里剩下的就是1升水；</p>
+<p>4、倒掉5升的，把1升水倒入5升杯；</p>
+<p>5、第三次加满3升杯，倒入5升杯，得到4升水。</p>
+<p>● 晚上有四个人过桥，一次只能过两个人，但是只有一只手电筒，四个人过桥时间分别是1，2，5，8，求最短过桥时间<br>
+参考回答：<br>
+假设这四人依次是甲乙丙丁：首先甲和乙过桥,甲带手电筒回来；然后丙和丁过桥,由乙带手电筒回来；最后甲再和乙一起过桥.所以最少用时间是2+1+8+2+2=15（分钟）<br>
+● 两个容积分别为5升和6升的桶，最后如何只装3升？<br>
+参考回答：<br>
+第一步：先取来6升水，倒进5升桶的水桶里，即得到6升桶里余下的1升水；<br>
+第二步：把5L桶清掉，把取到的1升水放进5升的水桶里保留不动，然后再取6升水，倒进5升的水桶里，6升的桶得到的是2升水，把5L桶清掉，存放这2升水；</p>
+<p>第三步：5升水桶有2升水．再取6升水，倒进5升水桶里，原有2L升+3升=5升，这时6升-3升=3升，6升里余下的就是3升水了。</p>
+<p>● 有十张扑克牌，每次可以只出一张，也可以只出两张，要出完有多少种出法<br>
+参考回答：<br>
+还有一张牌就出完10张，可能的情况有两种，从9到10和从8到10，已知了从0到9的出法有N种，如果再知道从0到8的出法有P种，那么从0到10级的出法就是N+P，那么可得出：<br>
+F(9)=N；</p>
+<p>F(8)=P；</p>
+<p>F(10)=N+P；</p>
+<p>F(10)=F(9)+F(8);</p>
+<p>又有：</p>
+<p>F(1)=1;</p>
+<p>F(2)=2;</p>
+<p>最后推出：F(10)=89</p>
+<p>● 井盖为什么是圆的<br>
+参考回答：<br>
+井道大都是圆形的，所以井盖就做成圆形的。<br>
+很多井道都是圆形的，所以井盖自然也就是圆形的了。那为什么井大都是圆形的呢？因为建筑学和土木工程学中，圆形通道最有利于保持土壤的压力。</p>
+<p>圆的受力更均匀不容易碎裂和塌陷</p>
+<p>圆形井盖受力后，会向四周扩散压力，由于扩散均匀不容易碎裂和塌陷。<br>
+矩形的井盖由于受力不均匀，导致碎裂的几率远大于圆形。所以通过耐用性方面考虑还是圆形井盖合适。</p>
+<p>圆形井盖从任何方向都不会掉落井下，也方便操作</p>
+<p>矩形对角线的长度都大于矩形的长和宽。所以在对角线方向把井盖竖起来就容易掉落井下。</p>
+<p>相对节省生成材料成本</p>
+<p>相对于矩形或者正方形，矩形内切圆形的面积最小，生成用的材料也更少。</p>
+<p>● 用5L和6L的桶，没有刻度，怎么量出3L的水<br>
+参考回答：<br>
+1.先将6L杯装满水放,然后将6L杯里的水倒满5L杯,此时5L杯水满为5L水,6L杯剩1L水；<br>
+2.清空5L杯,将6L杯的1L水放到5L杯,此时5L杯有1L水,6L杯是空的；<br>
+3.将6L杯装满水,然后往5L杯倒,刚好倒满5L杯（原有1L+6L杯倒过来的4L=5L）的时候,6L杯里还有2L水。<br>
+4.清空5L杯里的水,将6L杯的2L水倒到5L杯,此时5L杯里有2L水,6L杯为空；<br>
+5.将6L杯装满水,然后往5L杯里倒,刚好倒满5L杯（5L杯原来有2L+6L杯倒过来的3L=5L刚好满）时,6L杯里剩下的水就是3L.<br>
+● 从前有座山，山脚下有5个海盗抢到了100枚金币，每一颗都一样的大小和价值。他们决定通过抽签的方式，按顺序提出分配方案决定金币的归属。 首先，由1号提出方案，5个人进行表决，半数人以上（包括半数）同意时，方案通过，否则他将被扔入大海喂鲨鱼，剩余海盗继续按顺序提出方案，依次类推。 假设每个海盗都是足够理性及机智，会考虑到利害及利益最大化问题，那么，1号海盗提出怎样的分配方案才能顺利通过考验并拿到可能性内最多的金币呢？<br>
+参考回答：<br>
+海盗分金推理过程：<br>
+从后向前推，如果只剩4号和5号的话，5号一定会投反对票让4号喂鲨鱼，以独吞全部金币。所以，4号唯有支持3号才能保命。3号知道这一点，就会提(100，0，0)的分配方案，对4号、5号一毛不拔而将全部金币归为己有，因为他知道4号一无所获也会投赞成票，再加上自己一票他的方案即可通过。不过，2号推知到3号的方案，就会提出(98，0，1，1)的方案，即放弃3号，而给予4号和5号各一枚金币。由于该方案对于4号和5号来说比在3号分配时更为有利，他们将支持他而不希望由3号来分配。这样，2号将拿走98枚金币。不过，2号的方案会被1号所洞悉，1号并将提出(97，0，1，2，0)或(97，0，1，0，2)的方案，即放弃2号，而给3号一枚金币，同时给4号(或5号)2枚金币。由于1号的这一方案对于3号和4号(或5号)来说，相比2号分配时更优，他们将投1号的赞成票，再加上1号自己的票，1号的方案可获通过，97枚金币可轻松落入囊中。</p>
+<p>● 烧绳子得到15分钟<br>
+参考回答：<br>
+烧一根不均匀的绳子，从头烧到尾总共需要1个小时，问如何用烧绳子的方法来确定15分钟?<br>
+答案：烧两根绳子，1第一根两头一起点，第二根点一头<br>
+2第一根烧完后点第二根另一端，从此时起计时，至第二根烧完，即15min（哎不知道出这种题是要干什么）</p>
+<p>● 两个盲人各买了一白一黑两双袜子，不小心弄混了，问他们自己怎么分成刚好每人一白一黑<br>
+参考回答：<br>
+额因为袜子一双都是连在一起的，所以把两双袜子扯开，互相给对方一只，即可<br>
+● 一个圆桌，两个人往上放硬币，只能平铺不能重合，最后一个放的人胜利（接下来硬币无处可放了），问先放的赢还是后放的赢。<br>
+参考回答：<br>
+这道题会围棋的人一般都知道，只要先手把硬币放在圆桌正中心，随后第二个人无论把硬币放在哪，第一个人都把硬币放在对称的位置，即可，是先放的赢</p>
+<p>[机智的网友]用5L和6L的桶，没有刻度，怎么量出3L的水<br>
+还有一种方法：<br>
+1.先5L容器盛满水倒入6L容器中，5L容器再盛满倒入6L容器中，因为6L容器只差1L就满了，所以5L的容器中还剩4L水。<br>
+2.清空6L的容器，把5L容器中剩下的4L水倒入6L容器中，此时6L容器中有4L水。<br>
+3.5L容器再盛满水倒入6L容器中，当6L容器倒满时，5L容器中的水就剩下3L啦。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://dyzzbao.github.io/post/sql-fu-xi-yi/">
+              <h3 class="post-title">
+                下一篇：SQL复习(一)
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">心上无垢，林间有风。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://dyzzbao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b106d86af989ef692a1',
+        clientSecret: 'e946caeee7b7299f9b224e411328582e323f467f',
+        repo: 'dyzzbao.github.io',
+        owner: 'dyzzbao',
+        admin: ['dyzzbao'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
