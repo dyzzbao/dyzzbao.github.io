@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>程序猿 | dyzzbao的Blog</title>
+<title>PyCharm+Git+GitHub Push Failed  | dyzzbao的Blog</title>
 <meta name="description" content="心上无垢，林间有风。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,6 +16,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -78,71 +84,61 @@
 
 
       <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">PyCharm+Git+GitHub Push Failed </h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-09</span>
+            
+          </div>
+          <div class="post-content">
+            <p>环境：macOS Sierra 10.12.6<br>
+Git版本：git version 2.23.0<br>
+PyCharm版本：PyCharm 2019.3.3<br>
+今天晚上在学习git时遇到这个问题，push一个文件到GitHub上失败，报错如下</p>
+<pre><code>22:39	Push failed
+			Invocation failed Server returned invalid Response.
+			java.lang.RuntimeException: Invocation failed Server returned invalid Response.
+			at org.jetbrains.git4idea.http.GitAskPassXmlRpcClient.askUsername(GitAskPassXmlRpcClient.java:50)
+			at org.jetbrains.git4idea.http.GitAskPassApp.main(GitAskPassApp.java:64)
+			Caused by: java.io.IOException: Server returned invalid Response.
+			at org.apache.xmlrpc.LiteXmlRpcTransport.sendRequest(LiteXmlRpcTransport.java:242)
+			at org.apache.xmlrpc.LiteXmlRpcTransport.sendXmlRpc(LiteXmlRpcTransport.java:90)
+			at org.apache.xmlrpc.XmlRpcClientWorker.execute(XmlRpcClientWorker.java:72)
+			at org.apache.xmlrpc.XmlRpcClient.execute(XmlRpcClient.java:194)
+			at org.apache.xmlrpc.XmlRpcClient.execute(XmlRpcClient.java:185)
+			at org.apache.xmlrpc.XmlRpcClient.execute(XmlRpcClient.java:178)
+			at org.jetbrains.git4idea.http.GitAskPassXmlRpcClient.askUsername(GitAskPassXmlRpcClient.java:47)
+			... 1 more
+			remote: Repository not found.
+			Authentication failed for 'https:/... (show balloon)
+</code></pre>
+<p>解决方法</p>
+<pre><code>cd xxx //xxx为当前项目根目录
+git config --global http.sslVerfy false  //设置跳过SSL证书验证
+</code></pre>
 
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> 程序猿
-          </h2> 
+          </div>
         </div>
 
         
-<section class="post-item">
-    <div class="content">
-      <a href="https://dyzzbao.github.io/post/typingio-yi-ge-te-bie-de-zai-xian-da-zi-wang-zhan/">
-        <h2 class="post-title">typing.io--一个特别的在线打字网站</h2>
-      </a>
-      <div class="post-abstract">
-        <p>typing.io是一个针对程序代码的打字练习网站</p>
-<blockquote>
-<p>地址：https://typing.io/</p>
-</blockquote>
-
+          <div class="next-post">
+            <a class="purple-link" href="https://dyzzbao.github.io/post/suan-fa-ti/">
+              <h3 class="post-title">
+                下一篇：算法题
+              </h3>
+            </a>
+          </div>
+          
       </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-03-05</span>
+
+      
         
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://dyzzbao.github.io/tag/FuUzd-CKR/">
-                程序猿
-                
-                  ，
-                
-              </a>
-            
-              <a href="https://dyzzbao.github.io/tag/2cNuGDyLC/">
-                在线打字
-                
-                  ，
-                
-              </a>
-            
-              <a href="https://dyzzbao.github.io/tag/wxhARKMiI/">
-                Gmail
-                
-              </a>
-            
-          </span>
+          <div id="gitalk-container"></div>
         
-      </div>
-    </div>
-    
-      <a href="https://dyzzbao.github.io/post/typingio-yi-ge-te-bie-de-zai-xian-da-zi-wang-zhan/">
-        <div class="feature-container" style="background-image: url('https://dyzzbao.github.io/post-images/typingio-yi-ge-te-bie-de-zai-xian-da-zi-wang-zhan.png')">
-        </div>
-      </a>
-    
-  </section>
 
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
-      </div>
+        
+      
 
       <div class="site-footer">
   <div class="slogan">心上无垢，林间有风。</div>
@@ -176,6 +172,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b106d86af989ef692a1',
+        clientSecret: 'e946caeee7b7299f9b224e411328582e323f467f',
+        repo: 'dyzzbao.github.io',
+        owner: 'dyzzbao',
+        admin: ['dyzzbao'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

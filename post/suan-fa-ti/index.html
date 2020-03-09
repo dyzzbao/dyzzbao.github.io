@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>程序猿 | dyzzbao的Blog</title>
+<title>算法题 | dyzzbao的Blog</title>
 <meta name="description" content="心上无垢，林间有风。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,6 +16,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://dyzzbao.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -78,71 +84,58 @@
 
 
       <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('http://05imgmini.eastday.com/mobile/20190107/20190106233039_dcf4f9f20c5241db65b452f71ef60cc1_1_mwpl_05500201.jpg')">
+            </div>
+          
+          <h2 class="post-title">算法题</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-03-09</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://dyzzbao.github.io/tag/e5xrpndm7/">
+                    算法
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>一、写一个函数检查随机产生的列表(整型)元素是否从小到大排序，返回Boolean类型。</p>
+<pre><code>bool method(int* temp,int n){
+    for(int i=0; i&lt;n-1; i++){
+        if(temp[i]&gt;temp[i+1])
+            return false;
+    }
+    return true;
+}
+</code></pre>
 
-        <div class="current-tag-container">
-          <h2 class="title">
-            <i class="icon icon-pricetags-outline"></i> 程序猿
-          </h2> 
+          </div>
         </div>
 
         
-<section class="post-item">
-    <div class="content">
-      <a href="https://dyzzbao.github.io/post/typingio-yi-ge-te-bie-de-zai-xian-da-zi-wang-zhan/">
-        <h2 class="post-title">typing.io--一个特别的在线打字网站</h2>
-      </a>
-      <div class="post-abstract">
-        <p>typing.io是一个针对程序代码的打字练习网站</p>
-<blockquote>
-<p>地址：https://typing.io/</p>
-</blockquote>
-
+          <div class="next-post">
+            <a class="purple-link" href="https://dyzzbao.github.io/post/jin-shan-ban-gong-2020-xiao-zhao-ce-shi-gong-cheng-shi-bi-shi-ti-er/">
+              <h3 class="post-title">
+                下一篇：金山办公2020校招测试工程师笔试题（二）
+              </h3>
+            </a>
+          </div>
+          
       </div>
-      <div class="post-info">
-        <span><i class="icon icon-calendar-outline"></i> 2020-03-05</span>
+
+      
         
-          <span>
-            <i class="icon icon-pricetags-outline"></i>
-            
-              <a href="https://dyzzbao.github.io/tag/FuUzd-CKR/">
-                程序猿
-                
-                  ，
-                
-              </a>
-            
-              <a href="https://dyzzbao.github.io/tag/2cNuGDyLC/">
-                在线打字
-                
-                  ，
-                
-              </a>
-            
-              <a href="https://dyzzbao.github.io/tag/wxhARKMiI/">
-                Gmail
-                
-              </a>
-            
-          </span>
+          <div id="gitalk-container"></div>
         
-      </div>
-    </div>
-    
-      <a href="https://dyzzbao.github.io/post/typingio-yi-ge-te-bie-de-zai-xian-da-zi-wang-zhan/">
-        <div class="feature-container" style="background-image: url('https://dyzzbao.github.io/post-images/typingio-yi-ge-te-bie-de-zai-xian-da-zi-wang-zhan.png')">
-        </div>
-      </a>
-    
-  </section>
 
-
-<div class="pagination-container">
-  
-  
-</div>
-
-
-      </div>
+        
+      
 
       <div class="site-footer">
   <div class="slogan">心上无垢，林间有风。</div>
@@ -176,6 +169,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b106d86af989ef692a1',
+        clientSecret: 'e946caeee7b7299f9b224e411328582e323f467f',
+        repo: 'dyzzbao.github.io',
+        owner: 'dyzzbao',
+        admin: ['dyzzbao'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
